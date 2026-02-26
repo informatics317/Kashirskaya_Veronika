@@ -1,0 +1,6 @@
+2026-02-18 15:08:11,227 INFO The beginning of fuzzywuzzy
+2026-02-18 15:08:11,228 INFO The end of fuzzywuzzy. Time work = 0.0007321834564208984
+2026-02-18 15:08:11,228 INFO The beginning of Levenshtein
+2026-02-18 15:08:11,228 INFO The end of Levenshtein. Time work = 0.0006136894226074219
+2026-02-18 15:08:11,229 INFO The beginning of levenstein
+2026-02-18 15:08:12,967 INFO The end of levenstein . Time work = 1.7388389110565186
