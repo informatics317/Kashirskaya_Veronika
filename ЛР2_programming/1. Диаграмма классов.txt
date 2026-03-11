@@ -1,0 +1,38 @@
+@startuml
+class Human {
+  -self
+  -name
+  -strength
+  -iq
+  -damage
+  -hp
+  -mp
+  -take_damage(self, damage)
+  -regenerate(self, regen)
+
+}
+
+Human ..|> Hero
+class Hero {
+  -init(self, name, damage, strength, iq, hp)
+  -attack(self, target)
+  -attack_excalibur(self, target)
+  -use_health_elixir(self)
+  -take_damage(self, damage)
+}
+
+Human ..|> Mag
+class Mag {
+  -init(self, name, damage, strength, iq, hp, mp, fire_power, healing)
+  -attack_fire(self, target)
+  -take_damage(self, damage)
+  -heal(self, target)
+}
+
+Human ..|> Knight
+class Knight {
+  -init(self, name, damage, strength, iq, hp, mp, shield, spear_power)
+  -attack_spear(self, target)
+  -take_damage(self, damage)
+}
+@enduml

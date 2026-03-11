@@ -1,0 +1,54 @@
+@startuml
+skinparam componentStyle rectangle
+
+[choice] --> [new_game]
+[choice] --> [load_game]
+[choice] --> [registrations_user]
+[choice] --> [exit]
+
+note right of [choice] : Выбор в меню
+note right of [new_game] : Начать новую игру
+note bottom of [load_game] : Продолжить сохраненную игру
+note bottom of [registrations_user] : Регестрация
+note bottom of [exit] : Выход из игры
+
+[new_game] ---> [log_in_game]
+note bottom of [log_in_game] : Вход в игру с помощью имени и пароля 
+[new_game] ---> [artifact_selection]
+note bottom of [artifact_selection] : Выбор артефактов
+[new_game] ---> [magic_forest]
+note right of [magic_forest] : Главное меню (Развилка в Волшебном лесу)
+
+[magic_forest] --> [first_branch] 
+note bottom of [first_branch] : 1-ая ветка (Встреча со старцем)
+[magic_forest] --> [second_branch]
+note bottom of [second_branch] : 2-ая ветка (Игра в кости с гномом)
+[magic_forest] --> [show_status]
+note bottom of [show_status] : Показать статус (Состояние персонажа)
+[magic_forest] --> [save_game]
+note bottom of [save_game] : Сохранить игру
+[magic_forest] --> [battle]
+note right of [battle] : 3-я ветка (Битва с Мордредом)
+
+[battle] ---> [Human]
+note right of [Human] : Возможности персонажей
+[Human] --> [arthur.attack]
+note bottom of [arthur.attack] : Простая атака Артура
+[Human] --> [arthur.excalibur]
+note bottom of [arthur.excalibur] : Атака Артура Экскалибуром
+[Human] --> [arthur.health_elixir]
+note bottom of [arthur.health_elixir] : Использование Эликсира здоровья
+
+[Human] --> [Merlin.heal]
+note bottom of [Merlin.heal] : Лечение союзников
+[Human] --> [Merlin.attack_fire]
+note bottom of [Merlin.attack_fire] : Атака Мерлина огнем
+
+[Human] --> [Lancelot.attack_spear]
+note bottom of [Lancelot.attack_spear] : Атака Ланселота копьем
+
+[battle] ---> [Boss]
+note right of [Boss] : Возможности босса
+[Boss] --> [boss_attack]
+note right of [boss_attack] : Атака босса
+@enduml

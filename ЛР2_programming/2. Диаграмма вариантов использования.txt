@@ -1,0 +1,69 @@
+@startuml
+actor Игрок as player
+
+package Меню {
+  usecase "Новая игра" as men1
+  usecase "Продолжить сохраненную игру" as men2
+  usecase "Регистрация" as men3
+  usecase "Выход" as men4
+  player --> men1
+  player --> men2
+  player --> men3
+  player --> men4
+}
+  usecase "Введите имя пользователя" as name3
+  men3 --> name3
+  usecase "Введите пароль" as password3
+  name3 --> password3
+
+  usecase "Введите имя пользователя" as name1
+  men1 --> name1
+  usecase "Введите пароль" as password1
+  name1 --> password1
+  usecase "Выберите артефакт" as artifact
+  password1 --> artifact
+
+package Главное_меню {
+  usecase "Направо" as g_men1
+  usecase "Налево" as g_men2
+  usecase "Сразиться с Мордредом" as g_men3
+  usecase "Показать мой статус" as g_men4
+  usecase "Сохранить игру" as g_men5
+  usecase "Выйти в меню" as g_men6
+  g_men6 --> Меню
+  artifact --> g_men1
+  artifact --> g_men2
+  artifact --> g_men3
+  artifact --> g_men4
+  artifact --> g_men5
+  artifact --> g_men6
+}
+  usecase "Загадка 1" as riddle_1
+  g_men1 --> riddle_1
+  riddle_1 --> Главное_меню
+  usecase "Загадка 2" as riddle_2
+  riddle_1 --> riddle_2
+  riddle_2 --> Главное_меню
+  usecase "Загадка 3" as riddle_3
+  riddle_2 --> riddle_3
+  riddle_3 ---> Главное_меню
+
+  usecase "Пещера с гномом" as gnome
+  g_men2 --> gnome
+  gnome --> Главное_меню
+
+  usecase "Бой с боссом" as battle
+  g_men3 --> battle
+  usecase "Победа" as victory
+  battle --> victory
+  usecase "Продолжить игру" as continue
+  victory --> continue
+  continue --> Главное_меню
+  usecase "Сохранить и выйти" as finish
+  victory --> finish
+
+  usecase "Поражение" as loss
+  battle --> loss
+  usecase "Игра окончена" as end
+  loss --> end
+@enduml
